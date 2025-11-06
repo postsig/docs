@@ -1,0 +1,126 @@
+---
+title: Products Schema
+description: Detailed documentation of the products data model
+---
+
+# Products Schema
+
+<Note>
+Products have their own relational structure separate from the main contract fields. A contract can have multiple products, each with yearly fees and user allocations.
+</Note>
+
+## Schema Overview
+
+Products are organized across three related tables:
+
+```
+vendor_products (Product Catalog)
+    ↓
+vendor_products_details (Fees per Year)
+    ↓
+vendor_products_users (User Allocations)
+```
+
+---
+
+## vendor_products (Product Catalog)
+
+The main product catalog table that stores products offered by each vendor.
+
+| Field Name | Type | Description |
+| --- | --- | --- |
+| `id` | number | Unique identifier for the product |
+| `name` | string | Product name |
+| `vendor_id` | number | Foreign key to vendors table |
+| `delivery_method_id` | number | Foreign key to data_delivery_types table (optional) |
+| `created_at` | string | Timestamp when product was created |
+| `updated_at` | string | Timestamp when product was last updated |
+
+**Relationships:**
+- Belongs to: `vendors` (via `vendor_id`)
+- Belongs to: `data_delivery_types` (via `delivery_method_id`)
+- Has many: `vendor_products_details`
+- Has many: `vendor_products_users`
+
+---
+
+## vendor_products_details (Annual Fees)
+
+Stores the actual fees charged per product, per year, per contract. This is where pricing information lives.
+
+| Field Name | Type | Description |
+| --- | --- | --- |
+| `id` | number | Unique identifier for the detail record |
+| `contract_id` | number | Foreign key to contracts table |
+| `product_id` | number | Foreign key to vendor_products table |
+| `year` | number | Fiscal year for this fee |
+| `fees` | number | Annual fee amount for this product in this year (optional) |
+| `n_users` | number | Number of users for this product in this year (optional) |
+| `user_id` | string | User who created/modified this record (optional) |
+| `created_at` | string | Timestamp when record was created |
+
+**Relationships:**
+- Belongs to: `contracts` (via `contract_id`)
+- Belongs to: `vendor_products` (via `product_id`)
+
+**Key Concept:** Each product can have different fees for different years within the same contract, enabling multi-year pricing structures.
+
+---
+
+## vendor_products_users (User Allocations)
+
+Tracks user count information for products within contracts.
+
+| Field Name | Type | Description |
+| --- | --- | --- |
+| `id` | number | Unique identifier for the user record |
+| `contract_id` | number | Foreign key to contracts table (optional) |
+| `product_id` | number | Foreign key to vendor_products table (optional) |
+| `number_of_users` | number | Number of users allocated (optional) |
+| `created_at` | string | Timestamp when record was created |
+| `updated_at` | string | Timestamp when record was last updated |
+
+**Relationships:**
+- Belongs to: `contracts` (via `contract_id`)
+- Belongs to: `vendor_products` (via `product_id`)
+
+---
+
+## Example Usage
+
+A contract might have:
+- **Product 1:** Bloomberg Terminal
+  - **2024 Details:** $25,000/year, 5 users
+  - **2025 Details:** $27,000/year, 7 users
+- **Product 2:** Bloomberg API
+  - **2024 Details:** $50,000/year, unlimited users
+  - **2025 Details:** $52,000/year, unlimited users
+
+---
+
+## Working with Products
+
+### Adding a Product to a Contract
+
+1. Product must exist in `vendor_products` table (linked to the vendor)
+2. Create a record in `vendor_products_details` for each fiscal year
+3. Optionally add user allocation records in `vendor_products_users`
+
+### Multi-Year Contracts
+
+For multi-year contracts, create separate `vendor_products_details` records for each year:
+
+```sql
+-- Year 1
+INSERT INTO vendor_products_details (contract_id, product_id, year, fees)
+VALUES (123, 456, 2024, 25000);
+
+-- Year 2 with price increase
+INSERT INTO vendor_products_details (contract_id, product_id, year, fees)
+VALUES (123, 456, 2025, 27000);
+```
+
+---
+
+**Last Updated:** 11/6/2025
+**Source:** `/Users/cindy/postsig-nextjs/database.types.ts`

@@ -1,0 +1,194 @@
+---
+title: Contract Fields
+description: Complete list of all contract fields
+---
+
+## Contract Metadata
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Vendor | `vendor` | Vendor name from global vendors stable
+| Contract Type | `type_id` | Contract type |
+| Contract Status | `status` | Either **Active**, **Inactive**, or **Unconfirmed**
+| All Parties Signed | `all_parties_signed` | Indicates whether the contract has been executed by all parties. Displays "Not Executed" badge when value is "No" |
+| Summary | `summary` | An AI generated summary of the spirit of the agreement that was entered into by the client and vendor |
+| PostSig Notes | `postsig_notes` | Internal notes field |
+| Asset Classes | `asset_classes` | |
+| Tags | `tags` | |
+| Renewal Type | `renewal_type` | **Auto**, **Manual**, or **One-Time** |
+| Will Not Renew | `will_not_renew` | Users can mark contracts for non-renewal and they will archive at the end date
+| Auto Renewal | `auto_renewal` | **Replaced by renewal_type** Y/N, if a contract contains a stipulation for renewing automatically at the end of the initial term |
+
+---
+
+## Contract Owner
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Business Sponsor | `business_sponsor` | The individual working for the client that advocated for the engagement with the vendor |
+| Business Group | `business_group` | The internal business group to which the business sponsor of a contract belongs |
+| Business Justification | `business_justification` | The reason a client has stated the purchase of the product(s) in a contract was necessary |
+| Business Order | `business_order` | The identifying code (alphanumeric) that a client assigns to the purchase of the products in contract |
+
+---
+
+## Date Fields
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Start Date | `term_start_date` | The calendar date on which the contract begins |
+| End Date | `term_end_date` | The calendar date on which the contract term ends |
+| Cancel By Date | `cancel_by_date` | The date range that determines the date by which a contract needs to be cancelled to avoid automatic renewal, expressed in days |
+| Cancel By Date | `cancel_date` | The date by which a contract must be cancelled to avoid auto renewal |
+| Execution Date | `execution_date` | The date the contract was signed. In the event that parties signed on different dates, the latter will be identified as the execution date |
+| Subscription Term | `subscription_term` | The length of the contract term |
+| Multi-Year Agreement | `multi_year` | If a contract is for more than one year; contracts with auto renewal clauses are considered multi year |
+
+---
+
+## Products Licensed
+
+<Note>
+Products have their own schema structure. [See detailed Products Schema documentation →](/products)
+</Note>
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Product Name | `vendor_products.name` | The name of the product offered by the vendor |
+| Product ID | `vendor_products.id` | Unique identifier for the product in the catalog |
+| Vendor ID | `vendor_products.vendor_id` | Links the product to its vendor |
+| Annual Fees | `vendor_products_details.fees` | Annual fee amount for this product in a given year |
+| Contract Year | `vendor_products_details.year` | For multi-year contracts with different pricing per year |
+| Delivery Method | `vendor_products.delivery_method_id` | Data delivery method for this product |
+
+---
+
+## Adjustments
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Discount | `discount` | The discount applied to the total cost |
+| Percentage Increase Per Period | `annual_increase` | The amount a contract is scheduled to increase in the subsequent term expressed as a percentage |
+| Consumer Price Index (CPI) Increase | `cpi` | Annual increase may be affected by CPI at time of renewal |
+
+---
+
+## Payment
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Billing Frequency | `billing_frequency` | The frequency at which the client is obligated to pay the vendor |
+| Currency | `currency` | The currency the remuneration in the contract is expressed in |
+| Payment Terms | `payment_terms` | The detail around how the client is obligated to pay the vendor for the products in contract |
+| Renewal Period | `renewal_period` | The term that the renewal period encompasses |
+| Cancellation Process | `cancellation_process` | The means by which a contract can be cancelled before entering into an auto renewal |
+
+---
+
+## Permissions & Scope of Use
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| End Users | `end_users` | Detail about the number of users, group/department/job function, user locations, may contain tiered pricing information |
+| Number of Users | `number_of_users` | Licensed user allocations per product, sourced from `vendor_products_users` table. Used for allocation of **Active Users** |
+| AI Training Restrictions | `ai_training_restrictions` | Where a vendor prohibits a client from using their data to train an LLM or any software for the client’s benefit |
+| Market Data Types | `market_data_types` | Outlines a description of the products to be used by end users. This could include descriptions like: real time quotes, delayed quotes, fixed income holdings, terms and conditions, historical data |
+| Data Delivery Method | `data_delivery_types` | Examples: SFTP, Snowflake, etc. Used for iventory management |
+| User Type | `internal_external_users` | Detail regarding client's enabling of users strictly internal to the firm or including external users as well |
+| Exclusivity Terms | `exclusivity_terms` | The client's rights to the data or product sold by the vendor (exclusive/non-exclusive) |
+| Distribution Rights | `distribution_rights` | The client's rights and obligations as it relates to distribution of the product sold by the vendor |
+| Geographic Restrictions | `geo_restrictions` | The geographic restrictions of the data or product sold by the vendor |
+| Derivative Works | `derivative_works` | Addresses if a user can combine the vendor data into other offerings to be shared with clients or used internally |
+| Activities | `activities` | Describes what lines of business the data can be used in aid of (i.e. trading, research, sales) |
+
+---
+
+## Other Terms
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Marketing Rights | `marketing_rights` | The marketing rights and obligations stipulated in the contract for both parties to the contract |
+| Suspension of Service | `suspension_of_service` | Detail around the circumstances that can precipitate the agreement being paused or ended in term |
+| Data Disposal Terms and Conditions | `data_disposal_tnc` | Obligations that exist under the conditions of the contract ending through cancellation or lapse or election not to purchase after a trial period |
+| Arbitration and Conflict Resolution | `arbitration_and_conflict_resolution` | Jurisdictional and venue stipulations |
+| Security Awareness and Tracking | `security_awareness` | What educational resources does the vendor make available |
+| Audit Requirements | `audit_requirements` | |
+| Service Level Agreements | `service_level_agreements` | Service level descriptions including SLA, Disaster Recovery Plan, and Uptime Guarantees |
+| Incident Related Cost Mitigation | `cost_mitigation` | Elements of SLA, Disaster Recovery Plan and Uptime Guarantees that relate specifically to damages and accounting for them, compensation due to client |
+
+---
+
+## Asset Classes
+
+Asset classes associated with the contract.
+
+**Tagging Logic**
+- Finding any subcategory triggers the parent tag (e.g., "Common Stocks" → "Equities" tag)
+- Finding the parent itself also triggers that tag
+- Multiple asset classes can be tagged per contract
+
+| Parent Asset Class | Subcategories / Synonyms |
+| --- | --- |
+| **Equities** | <ul><li>Common Stocks</li><li>Preferred Stocks</li><li>Exchange-Traded Funds (ETFs)</li><li>American Depository Receipts (ADRs)</li><li>Warrants and Rights</li></ul> |
+| **Fixed Income** | <ul><li>Government Bonds</li><li>U.S. Treasuries</li><li>Eurobonds</li><li>Corporate Bonds</li><li>Municipal Bonds</li><li>Sovereign Debt</li><li>Supranationals</li><li>Mortgage Backed Securities (MBS)</li><li>Asset Backed Securities (ABS)</li><li>Treasury Inflation Protected Securities (TIPS)</li><li>Convertible Bonds</li></ul> |
+| **Derivatives** | <ul><li>Equities Options / Equity Options</li><li>Index Options</li><li>FX Options</li><li>Interest Rate Options</li><li>Futures (Commodity, Financial)</li><li>Swaps (Interest Rate, Credit Default/CDS)</li><li>Forwards (Currency, Commodity)</li><li>Contracts for Difference (CFDs)</li></ul> |
+| **Foreign Exchange** | <ul><li>Spot FX</li><li>FX Forwards</li><li>FX Options</li><li>Currency Swaps</li></ul> |
+| **Commodities** | <ul><li>Energy (Oil, Natural Gas)</li><li>Precious Metals (Gold, Silver, Platinum, Palladium)</li><li>Industrial Metals (Copper, Aluminum)</li><li>Agricultural Commodities (Wheat, Corn, Soybeans, FCOJ)</li><li>Livestock (Cattle, Hogs)</li><li>Soft Commodities (Coffee, Cotton, Sugar)</li></ul> |
+| **Real Estate** | <ul><li>Real Estate Investment Trusts (REIT)</li><li>Commercial Real Estate</li><li>Residential Real Estate</li></ul> |
+| **Money Market Instruments** | <ul><li>Treasury Bills (T-Bills)</li><li>Commercial Paper</li><li>Certificates of Deposit (CD)</li><li>Repurchase Agreements (Repos)</li></ul> |
+| **Mutual Funds and Collective Investment Schemes** | <ul><li>Open-End Mutual Funds</li><li>Closed-End Funds</li><li>Hedge Funds</li><li>Unit Investment Trusts (UIT)</li></ul> |
+| **Indices** | <ul><li>Equity Market Indices</li><li>Bond Market Indices</li><li>Commodity Indices (CRB Index)</li><li>Volatility Indices (VIX)</li></ul> |
+| **Alternative Investments** | <ul><li>Private Equity</li><li>Venture Capital</li><li>Hedge Funds</li><li>Infrastructure Funds</li><li>Art</li><li>Wine</li><li>Collectibles</li></ul> |
+| **Cryptocurrencies and Digital Assets** | <ul><li>Bitcoin (BTC)</li><li>Ethereum (ETH)</li><li>Altcoins (Litecoin)</li><li>Stablecoins</li><li>Non-fungible Tokens (NFT)</li></ul> |
+| **Credit Instruments** | <ul><li>Corporate Loans</li><li>Syndicated Loans</li><li>Collateralized Debt Obligations (CDO)</li></ul> |
+| **Structured Products** | <ul><li>Collateralized Loan Obligations (CLO)</li><li>Structured Notes</li></ul> |
+| **Insurance Products** | <ul><li>Life Insurance Contracts</li><li>Annuities</li><li>Catastrophe Bonds</li></ul> |
+
+<Note>
+This taxonomy may expand over time as new asset classes and financial products emerge.
+</Note>
+
+---
+
+## NDA-Specific Fields
+
+| Name | Field ID | Description |
+| --- | --- | --- |
+| Extended Confidentiality Term | `extended_confidentiality_period` | NDA-specific date field |
+| Purpose | `purpose` | Describes the relationship between the parties and what the contract is meant to oblige the counterparties to during the course of the relationship |
+| Mutual NDA | `mutual_nda` | Identifies the NDA as being unilateral or bilateral |
+| Confidential Information | `confidential_information` | Describes the general and specific nature of the information to be shared between the counterparties to the agreement |
+| Permitted Use | `permitted_use` | Describes what either party can and cannot do with regard to the confidential information |
+| Term/Termination | `term_termination` | Describes the length of the agreement and any means by which the agreement can be effectively ended by either party |
+| Non-Use/Non-Disclosure | `non_use_non_disclosure` | Describes how the receiving party is obliged not to disclose or use confidential information for anything other than the use cases prescribed in the NDA |
+| Maintenance of Confidentiality | `maintenance_of_confidentiality` | Describes the obligations of the counterparties in regard to maintaining discretion while dealing with one another's confidential data and information |
+| No Obligation | `no_obligation` | Describes specifics around what the agreement does not oblige either party to do during the course of the agreements |
+| No License/Ownership | `no_license_ownership` | Describes details around persistence of property rights with regard to the confidential information that might be exchanged during the course of the agreement. Also defines property rights that arise from newly created IP |
+| Exclusions/Exceptions | `exclusions_exceptions` | Describes carve-outs or information expressly not covered by the agreement |
+| Non-Solicitation of Employees | `non_solicitation_of_employees` | Describes the extent to which the counterparties are obliged not to employ or retain one another's employees |
+| Remedies | `remedies` | Describes the entitlements of either party should confidentiality be breached during the course of the agreement |
+| No Warranty | `no_warranty` | Describes the warranties either party makes, or does not make, regarding the nature of the confidential information that may be shared |
+| Disclosure Required By Law | `disclosure_required_by_law` | Describes what transpires when either party is legally compelled to disclose anything related to, and including, the confidential information |
+| Miscellaneous | `miscellaneous` | Captures any detail with regard to the agreement that isn't effectively covered in other sections of the contract |
+
+### NDA Risk Indicators
+
+Automated risk assessment for NDA contracts. Contains 7 specific risk indicators.
+
+<Note>
+Risk levels are calculated as: **High Risk** (4+ flags), **Medium Risk** (1-3 flags), **Low Risk** (0 flags)
+</Note>
+
+| Risk Indicator | Field ID | Description |
+| --- | --- | --- |
+| Perpetual NDA | `perpetual_nda` | This is ongoing with no end of term date specified |
+| Unilateral NDA | `unilateral_nda` | This will obligate ONLY the signing party to confidentiality |
+| Non-Solicitation | `non_solicitation` | This obligates one or both parties to not hire or attempt to hire an employee of the counterparty |
+| Uncapped Liability | `uncapped_liability` | This has no upward limit on monetary damages or other liabilities that can be incurred by one or both parties |
+| Foreign Jurisdiction | `foreign_jurisdiction` | This stipulates any controversies arising will be adjudicated outside of the United States |
+| No Carve-Out Provisions | `no_carve_out_provisions` | This fails to stipulate what doesn't constitute confidential information (i.e. publicly known information, compelled disclosure by courts) |
+| Post End-of-Term Obligations | `post_end_of_term_obligations` | This has a term beyond the end of term that obliges continued confidentiality to one or both parties |
+
+---
+
+**Last Updated:** 11/6/2025

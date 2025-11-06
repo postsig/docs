@@ -1,0 +1,63 @@
+---
+title: Invoice Contract Configuration
+description: Simplified field configuration for invoice contracts
+---
+
+# Invoice Contract Configuration
+
+Used by: **Invoice** (Type 6)
+
+Invoice contracts use a simplified field configuration focused on basic contract details and product information.
+
+---
+
+## Overview Fields
+
+These fields appear in the contract overview section.
+
+`term_start_date` · `term_end_date` · `execution_date` · `billing_frequency` · `subscription_term` · `currency`
+
+---
+
+## Contract Details
+
+### Products Licensed
+`products_licensed`
+
+### Payment Details
+`payment_terms` · `renewal_period` · `cancellation_process`
+
+### Permissions and Scope of Use
+`end_users` · `number_of_users` · `market_data_types` · `data_delivery_types`
+
+---
+
+## Available Tabs
+
+**Owner** · **Audit** · **Lineage**
+
+<Note>
+Invoice contracts do not include the **DORA** tab.
+</Note>
+
+---
+
+## Summary
+
+<CardGroup cols={3}>
+  <Card title="Overview Fields" icon="layer-group">
+    6 fields
+  </Card>
+  <Card title="Detail Sections" icon="list">
+    3 sections
+  </Card>
+  <Card title="Total Fields" icon="database">
+    14 fields
+  </Card>
+</CardGroup>
+
+---
+
+<Note>
+See the [Contract Fields](/fields) page for detailed descriptions of each field.
+</Note>
