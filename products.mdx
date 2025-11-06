@@ -98,29 +98,4 @@ A contract might have:
 
 ---
 
-## Working with Products
-
-### Adding a Product to a Contract
-
-1. Product must exist in `vendor_products` table (linked to the vendor)
-2. Create a record in `vendor_products_details` for each fiscal year
-3. Optionally add user allocation records in `vendor_products_users`
-
-### Multi-Year Contracts
-
-For multi-year contracts, create separate `vendor_products_details` records for each year:
-
-```sql
--- Year 1
-INSERT INTO vendor_products_details (contract_id, product_id, year, fees)
-VALUES (123, 456, 2024, 25000);
-
--- Year 2 with price increase
-INSERT INTO vendor_products_details (contract_id, product_id, year, fees)
-VALUES (123, 456, 2025, 27000);
-```
-
----
-
 **Last Updated:** 11/6/2025
-**Source:** `/Users/cindy/postsig-nextjs/database.types.ts`
