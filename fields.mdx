@@ -54,8 +54,8 @@ Products have their own schema structure. [See detailed Products Schema document
 
 | Name | Field ID | Description |
 | --- | --- | --- |
+| ID | `vendor_products.id` | |
 | Product Name | `vendor_products.name` | The name of the product offered by the vendor |
-| Product ID | `vendor_products.id` | Unique identifier for the product in the catalog |
 | Vendor ID | `vendor_products.vendor_id` | Links the product to its vendor |
 | Annual Fees | `vendor_products_details.fees` | Annual fee amount for this product in a given year |
 | Contract Year | `vendor_products_details.year` | For multi-year contracts with different pricing per year |
@@ -68,7 +68,8 @@ Products have their own schema structure. [See detailed Products Schema document
 | Name | Field ID | Description |
 | --- | --- | --- |
 | Discount | `discount` | The discount applied to the total cost |
-| Percentage Increase Per Period | `annual_increase` | The amount a contract is scheduled to increase in the subsequent term expressed as a percentage |
+| Percentage Increase | `annual_increase` | The amount a contract is scheduled to increase in the subsequent term expressed as a percentage |
+| Period for Increase | `annual_increase_months` | The interval for applying price increases, expressed as number of months |
 | Consumer Price Index (CPI) Increase | `cpi` | Annual increase may be affected by CPI at time of renewal |
 
 ---
