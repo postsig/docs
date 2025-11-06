@@ -120,3 +120,7 @@
     font-weight: 700;
     font-style: italic;
 }
+
+#footer {
+    visibility: hidden;
+}
