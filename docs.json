@@ -2,6 +2,11 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Mint Starter Kit",
+  "seo": {
+    "metatags": {
+      "robots": "noindex"
+    }
+  },
   "colors": {
     "primary": "#18162d",
     "light": "#ffffff",
