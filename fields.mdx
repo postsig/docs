@@ -10,14 +10,14 @@ description: Complete list of all contract fields
 | Vendor | `vendor` | Vendor name from global vendors stable
 | Contract Type | `type_id` | Contract type |
 | Contract Status | `status` | Either **Active**, **Inactive**, or **Unconfirmed**
-| All Parties Signed | `all_parties_signed` | Indicates whether the contract has been executed by all parties. Displays "Not Executed" badge when value is "No" |
-| Summary | `summary` | An AI generated summary of the spirit of the agreement that was entered into by the client and vendor |
-| PostSig Notes | `postsig_notes` | Internal notes field |
-| Asset Classes | `asset_classes` | |
-| Tags | `tags` | |
-| Renewal Type | `renewal_type` | **Auto**, **Manual**, or **One-Time** |
 | Will Not Renew | `will_not_renew` | Users can mark contracts for non-renewal and they will archive at the end date
+| All Parties Signed | `all_parties_signed` | Indicates whether the contract has been executed by all parties. Displays "Not Executed" badge when value is "No" |
+| Renewal Type | `renewal_type` | **Auto**, **Manual**, or **One-Time** |
 | Auto Renewal | `auto_renewal` | **Replaced by renewal_type** Y/N, if a contract contains a stipulation for renewing automatically at the end of the initial term |
+| Asset Classes | `asset_classes` | Financial product categories tagged based on contract content. [See full taxonomy →](#asset-classes) |
+| Tags | `tags` | User-created tags applied to contracts |
+| Summary | `summary` | An AI generated summary of the spirit of the agreement that was entered into by the client and vendor |
+| PostSig Notes | `postsig_notes` | Notes from PostSig about a contract |
 
 ---
 
@@ -30,7 +30,7 @@ description: Complete list of all contract fields
 | Cancellation Date Range | `cancel_by_date` | The date range that determines the date by which a contract needs to be cancelled to avoid automatic renewal, expressed in days |
 | Cancel By Date | `cancel_date` | The date by which a contract must be cancelled to avoid auto renewal |
 | Execution Date | `execution_date` | The date the contract was signed. In the event that parties signed on different dates, the latter will be identified as the execution date |
-| Subscription Term | `subscription_term` | The length of the contract term |
+| Subscription Term | `subscription_term` | The length of the contract term, expressed as months |
 | Multi-Year Agreement | `multi_year` | If a contract is for more than one year; contracts with auto renewal clauses are considered multi year |
 
 ---
