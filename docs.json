@@ -28,7 +28,12 @@
         "groups": [
           {
             "group": "Getting started",
-            "pages": ["index", "fields", "contract-types"]
+            "pages": [
+              "index",
+              "fields",
+              "contract-types",
+              "user-roles-permissions"
+            ]
           }
         ]
       }
