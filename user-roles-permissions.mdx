@@ -1,0 +1,106 @@
+---
+title: "User Roles and Permissions"
+description: "This document defines the available user roles and what each role can do. Roles determine a user's level of access to folders, contracts, and organizational settings."
+---
+
+## Overview of Roles
+
+| Role | Typical Users | Access Level |
+| :--- | :--- | :--- |
+| **Admin** | Market Data Manager, Procurement Manager, Operations, Legal | Full control over folders, contracts, users, and organization-wide settings. Can edit all contracts. |
+| **Manager** | Team Lead, Executive (CFO/COO), Controller | Can upload and assign contracts. Limited administrative control. |
+| **Viewer** | Stakeholder, Business User | Read-only access. Can view and download contracts. |
+
+## Permissions Matrix
+
+The following tables outline specific permissions for each role across different functional areas.
+
+### Folder Management
+
+| Permission                     | Admin | Manager | Viewer |
+| :----------------------------- | :---: | :-----: | :----: |
+| Create / Edit / Delete Folders | ✅    | ❌      | ❌     |
+| View Folders                   | ✅    | ✅      | ✅     |
+| Share Folders                  | ✅    | ❌      | ❌     |
+
+### Contract Management
+
+| Permission                               | Admin | Manager | Viewer |
+| :--------------------------------------- | :---: | :-----: | :----: |
+| Assign / Re-assign Contracts             | ✅    | ✅      | ❌     |
+| Upload Contracts                         | ✅    | ✅      | ❌     |
+| Edit Contracts (Renew, Archive, Fields)  | ✅    | ❌      | ❌     |
+| View Contract Details                    | ✅    | ✅      | ✅     |
+| Download Contract PDF                    | ✅    | ✅      | ✅     |
+| Export CSVs                              | ✅    | ✅      | ✅     |
+| Create / Edit Tags                       | ✅    | ❌      | ❌     |
+| Specify Contract Omissions Clauses       | ✅    | ❌      | ❌     |
+| Specify ICT Providers                    | ✅    | ❌      | ❌     |
+
+### User Management
+
+| Permission                     | Admin | Manager | Viewer |
+| :----------------------------- | :---: | :-----: | :----: |
+| Create / Update / Delete Users | ✅    | ❌      | ❌     |
+
+## Role Definitions
+
+### Admin
+
+Admins have full administrative control over the organization's setup, users, and contracts.
+
+**Capabilities**
+- ✅ Create, edit, and delete folders and contracts
+- ✅ Assign and reassign contracts to users
+- ✅ Edit contracts (edit fields, renew or archive)
+- ✅ Configure organization-wide settings (e.g., Fiscal year period, omissions clauses, ICT providers)
+- ✅ Manage all users
+- ✅ View, download, and export contract data
+
+### Manager
+
+Managers oversee day-to-day contract operations and can upload, assign, and view contracts but have limited administrative control.
+
+**Capabilities**
+- ✅ Upload contracts and assign them to users
+- ✅ View, download, and export contract data
+
+**Restrictions**
+- ❌ Cannot manage users
+- ❌ Cannot share folders
+- ❌ Cannot edit existing contracts
+- ❌ Cannot update organization-wide settings
+
+### Viewer (Read-Only)
+
+Viewers have access for visibility and reporting only.
+
+**Capabilities**
+- ✅ View contract details and folders shared with them
+- ✅ Download contract PDFs and export CSVs
+
+**Restrictions**
+- ❌ Cannot upload contracts
+- ❌ Cannot edit contracts
+- ❌ Cannot assign contracts
+- ❌ Cannot manage contracts, folders, or users
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can a contract live in multiple folders?">
+    No, a contract can only exist in one folder at a time. If you need to reorganize contracts, you must move them from one folder to another rather than having them appear in multiple folders simultaneously.
+  </Accordion>
+
+  <Accordion title="When folders are created, who has access to that folder by default?">
+    By default, only Admin users have access to newly created folders. Admins must explicitly share folders with other users to grant them access.
+  </Accordion>
+
+  <Accordion title="Do managers have access to all contracts?">
+    No, Managers only have access to:
+    - Contracts that are specifically assigned to them
+    - Contracts that they personally upload
+
+    They do not have organization-wide access to all contracts like Admins do.
+  </Accordion>
+</AccordionGroup>
