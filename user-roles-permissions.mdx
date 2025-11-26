@@ -5,11 +5,11 @@ description: "This document defines the available user roles and what each role 
 
 ## Overview of Roles
 
-| Role        | Typical Users                                               | Access Level                                                                                         |
-| :---------- | :---------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
-| **Admin**   | Market Data Manager, Procurement Manager, Operations, Legal | Full control over folders, contracts, users, and organization-wide settings. Can edit all contracts. |
-| **Manager** | Team Lead, Executive (CFO/COO), Controller                  | Can upload and assign contracts. Limited administrative control.                                     |
-| **Viewer**  | Stakeholder, Business User                                  | Read-only access. Can view and download contracts.                                                   |
+| Role        | Typical Users                                               | Access Level                                                                                                 |
+| :---------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
+| **Admin**   | Market Data Manager, Procurement Manager, Operations, Legal | Full control over folders, contracts, users, groups, and organization-wide settings. Can edit all contracts. |
+| **Manager** | Team Lead, Executive (CFO/COO), Controller                  | Can upload and assign contracts. Limited administrative control.                                             |
+| **Viewer**  | Stakeholder, Business User                                  | Read-only access. Can view and download contracts.                                                           |
 
 ## Permissions Matrix
 
@@ -39,9 +39,10 @@ The following tables outline specific permissions for each role across different
 
 ### User Management
 
-| Permission                     | Admin | Manager | Viewer |
-| :----------------------------- | :---: | :-----: | :----: |
-| Create / Update / Delete Users | ✅     | ❌       | ❌      |
+| Permission                      | Admin | Manager | Viewer |
+| :------------------------------ | :---: | :-----: | :----: |
+| Create / Update / Delete Users  | ✅     | ❌       | ❌      |
+| Create / Update / Delete Groups | ✅     | ❌       | ❌      |
 
 ## Role Definitions
 
@@ -52,10 +53,10 @@ Admins have full administrative control over the organization's setup, users, an
 **Capabilities**
 
 - ✅ Create, edit, and delete folders and contracts
-- ✅ Assign and reassign contracts to users
+- ✅ Assign and reassign contracts to users and groups
 - ✅ Edit contracts (edit fields, renew or archive)
 - ✅ Configure organization-wide settings (e.g., Fiscal year period, omissions clauses, ICT providers)
-- ✅ Manage all users
+- ✅ Manage all users and groups
 - ✅ View, download, and export contract data
 
 ### Manager
@@ -64,12 +65,12 @@ Managers oversee day-to-day contract operations and can upload, assign, and view
 
 **Capabilities**
 
-- ✅ Upload contracts and assign them to users
+- ✅ Upload contracts and assign them to users or groups
 - ✅ View, download, and export contract data
 
 **Restrictions**
 
-- ❌ Cannot manage users
+- ❌ Cannot manage users or groups
 - ❌ Cannot share folders
 - ❌ Cannot edit existing contracts
 - ❌ Cannot update organization-wide settings
@@ -88,7 +89,7 @@ Viewers have access for visibility and reporting only.
 - ❌ Cannot upload contracts
 - ❌ Cannot edit contracts
 - ❌ Cannot assign contracts
-- ❌ Cannot manage contracts, folders, or users
+- ❌ Cannot manage contracts, folders, users, or groups
 
 ## Frequently Asked Questions
 
@@ -97,7 +98,7 @@ Viewers have access for visibility and reporting only.
     No, a contract can only exist in one folder at a time.
   </Accordion>
   <Accordion title="When folders are created, who has access to that folder by default?">
-    By default, only Admin users have access to newly created folders. Admins must explicitly share folders with other users to grant them access.
+    By default, only Admin users have access to newly created folders. Admins must explicitly share folders with other users or groups to grant them access.
   </Accordion>
   <Accordion title="Do managers have access to all contracts?">
     No, Managers only have access to:
