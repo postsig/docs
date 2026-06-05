@@ -45,8 +45,7 @@
                   "contract-types/operational",
                   "contract-types/nda"
                 ]
-              },
-              "user-roles-permissions"
+              }
             ]
           },
           {
@@ -54,6 +53,12 @@
             "pages": [
               "mcp-servers/cpm",
               "mcp-servers/investor"
+            ]
+          },
+          {
+            "group": "Permissions",
+            "pages": [
+              "user-roles-permissions"
             ]
           }
         ]
