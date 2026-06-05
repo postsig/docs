@@ -5,6 +5,56 @@ description: "MCP server tools for contract and portfolio management"
 
 The CPM MCP server exposes tools for working with contracts, vendors, renewals, spend, and related metadata in the user's organization.
 
+**Server URL:** `https://app.postsig.com/api/cpm/mcp`
+
+## Connect
+
+<Tabs>
+  <Tab title="Claude">
+    <Steps>
+      <Step title="Open Connectors">
+        In Claude, go to **Settings → Connectors**.
+      </Step>
+      <Step title="Add a custom connector">
+        Click **Add custom connector** and enter:
+
+        - **Name:** PostSig CPM
+        - **URL:** `https://app.postsig.com/api/cpm/mcp`
+      </Step>
+      <Step title="Sign in">
+        Click **Add** and complete the OAuth login with your PostSig account.
+      </Step>
+      <Step title="Use it">
+        In a Claude chat, use the attachments button to enable the **PostSig CPM** server for that conversation.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Claude Code">
+    Run:
+
+    ```bash
+    claude mcp add --transport http postsig-cpm https://app.postsig.com/api/cpm/mcp
+    ```
+
+    On first use a browser window opens for OAuth login.
+  </Tab>
+  <Tab title="Cursor">
+    Open the command palette → **Open MCP Settings** → **Add custom MCP**. Then add the following to `mcp.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "postsig-cpm": {
+          "url": "https://app.postsig.com/api/cpm/mcp"
+        }
+      }
+    }
+    ```
+
+    Reload Cursor and complete OAuth login when prompted.
+  </Tab>
+</Tabs>
+
 <Note>
   Tools marked **(write)** require the write scope. All others are read-only.
 </Note>
