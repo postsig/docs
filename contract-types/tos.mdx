@@ -1,0 +1,130 @@
+---
+title: "TOS"
+description: "Fields shown for Terms of Service contracts (type_id 5)"
+---
+
+<Info>
+  **Type ID:** `5`    **Field configuration:** Default
+</Info>
+
+<Tip>
+  _Description placeholder — add a short note describing what a Terms of Service document is and when PostSig uses this type._
+</Tip>
+
+## Overview
+
+| Field | Description |
+| --- | --- |
+| [`term_start_date`](/fields#date-fields) | The calendar date on which the contract begins |
+| [`term_end_date`](/fields#date-fields) | The calendar date on which the contract term ends |
+| [`cancel_by_date`](/fields#date-fields) | Date range to cancel by to avoid auto-renewal |
+| [`subscription_term`](/fields#date-fields) | Length of the contract term, in months |
+| [`renewal_type`](/fields#contract-metadata) | Auto, Manual, or One-Time |
+| [`multi_year`](/fields#date-fields) | Whether the contract spans more than one year |
+
+## Contract details
+
+### Products Licensed
+
+| Field | Description |
+| --- | --- |
+| [`products_licensed`](/fields#products-licensed) | Products covered by this contract |
+
+### Product terms
+
+| Field | Description |
+| --- | --- |
+| [`market_data_types`](/fields#permissions--scope-of-use) | Real-time/delayed quotes, fixed income holdings, T&C, historical data |
+| [`data_delivery_types`](/fields#permissions--scope-of-use) | Delivery methods such as SFTP or Snowflake |
+| [`exclusivity_terms`](/fields#permissions--scope-of-use) | Exclusive/non-exclusive rights to the data or product |
+
+### Adjustments
+
+| Field | Description |
+| --- | --- |
+| [`discount`](/fields#adjustments) | Discount applied to the total cost |
+| [`annual_increase`](/fields#adjustments) | Scheduled percentage increase per period |
+| [`cpi`](/fields#adjustments) | Whether annual increase may be affected by CPI |
+
+### Payment details
+
+| Field | Description |
+| --- | --- |
+| [`billing_frequency`](/fields#payment) | How often the client pays the vendor |
+| [`currency`](/fields#payment) | Currency the remuneration is expressed in |
+| [`payment_terms`](/fields#payment) | Detail on how the client must pay |
+| [`renewal_period`](/fields#payment) | The term covered by the renewal |
+| [`cancellation_process`](/fields#payment) | How to cancel before auto-renewal |
+
+### Permissions and scope of use
+
+| Field | Description |
+| --- | --- |
+| [`end_users`](/fields#permissions--scope-of-use) | Detail about users, groups, locations, tiered pricing |
+| [`number_of_users`](/fields#permissions--scope-of-use) | Licensed user allocations per product |
+| [`ai_training_restrictions`](/fields#permissions--scope-of-use) | Restrictions on using vendor data to train models |
+| [`internal_external_users`](/fields#permissions--scope-of-use) | Whether external users are permitted |
+| [`distribution_rights`](/fields#permissions--scope-of-use) | Client rights and obligations regarding distribution |
+| [`geo_restrictions`](/fields#permissions--scope-of-use) | Geographic restrictions |
+| [`derivative_works`](/fields#permissions--scope-of-use) | Rules for combining vendor data into other offerings |
+| [`activities`](/fields#permissions--scope-of-use) | Lines of business the data can support |
+
+### Other terms
+
+Each appears as an individual card in the contract details panel.
+
+| Field | Description |
+| --- | --- |
+| [`marketing_rights`](/fields#other-terms) | Marketing rights and obligations |
+| [`suspension_of_service`](/fields#other-terms) | Circumstances that can pause or end the agreement |
+| [`data_disposal_tnc`](/fields#other-terms) | Disposal obligations on cancellation or lapse |
+| [`audit_requirements`](/fields#other-terms) | Audit requirements |
+| [`service_level_agreements`](/fields#other-terms) | SLA, DRP, uptime guarantees |
+| [`cost_mitigation`](/fields#other-terms) | Incident-related cost mitigation |
+| [`arbitration_and_conflict_resolution`](/fields#other-terms) | Jurisdictional and venue stipulations |
+| [`security_awareness`](/fields#other-terms) | Vendor-provided educational resources |
+| `amended_clauses` | Clauses amended in this contract |
+
+## PostSig metadata
+
+| Field | Description |
+| --- | --- |
+| [`postsig_notes`](/fields#contract-metadata) | Notes added by PostSig |
+| `missing_fields` | Fields flagged as incomplete during extraction |
+| [`asset_classes`](/fields#contract-metadata) | Tagged financial product categories |
+| [`tags`](/fields#contract-metadata) | User-created tags |
+| [`summary`](/fields#contract-metadata) | AI-generated summary of the agreement |
+
+## Tabs
+
+| Tab | Purpose |
+| --- | --- |
+| Owner | Business sponsor and ownership details |
+| DORA | DORA risk register entries |
+| Audit | Contract audit log |
+| Lineage | Parent / child contract relationships |
+
+---
+
+## Baseline (all contracts)
+
+Fields below appear on every contract regardless of type. See the [Contract Fields glossary](/fields) for full definitions.
+
+### Contract metadata
+
+| Field | Description |
+| --- | --- |
+| [`vendor`](/fields#contract-metadata) | Vendor name |
+| [`contract_type`](/fields#contract-metadata) | Type name (resolved from `type_id`) |
+| [`status`](/fields#contract-metadata) | Active / Inactive / Unconfirmed |
+| [`will_not_renew`](/fields#contract-metadata) | Marks contract for archival at end date |
+| [`all_parties_signed`](/fields#contract-metadata) | Execution status |
+
+### Contract owner
+
+| Field | Description |
+| --- | --- |
+| [`business_sponsor`](/fields#contract-owner) | Internal advocate for the engagement |
+| [`business_group`](/fields#contract-owner) | The sponsor's business group |
+| [`business_justification`](/fields#contract-owner) | Reason for the purchase |
+| [`business_order`](/fields#contract-owner) | Client-assigned order code |

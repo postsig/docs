@@ -1,63 +1,104 @@
 ---
-title: Invoice Contract Configuration
-description: Simplified field configuration for invoice contracts
+title: "Invoice"
+description: "Fields shown for Invoice contracts (type_id 6)"
 ---
 
-# Invoice Contract Configuration
+<Info>
+  **Type ID:** `6`    **Field configuration:** Custom (Invoice-specific)
+</Info>
 
-Used by: **Invoice** (Type 6)
+Invoice contracts use a narrowed field configuration focused on the financial details of a single billing event. Renewal, multi-year, and most negotiated terms are intentionally omitted.
 
-Invoice contracts use a simplified field configuration focused on basic contract details and product information.
+## Overview
 
----
+Top-of-page fields. Invoices include the execution date, billing frequency, and currency in the overview itself — fields that live in deeper sections for other contract types.
 
-## Overview Fields
+| Field | Description |
+| --- | --- |
+| [`term_start_date`](/fields#date-fields) | The calendar date on which the term begins |
+| [`term_end_date`](/fields#date-fields) | The calendar date on which the term ends |
+| [`execution_date`](/fields#date-fields) | The date the document was signed |
+| [`billing_frequency`](/fields#payment) | How often the client is billed |
+| [`subscription_term`](/fields#date-fields) | Length of the term, in months |
+| [`currency`](/fields#payment) | Currency the amounts are expressed in |
 
-These fields appear in the contract overview section.
-
-`term_start_date` · `term_end_date` · `execution_date` · `billing_frequency` · `subscription_term` · `currency`
-
----
-
-## Contract Details
+## Contract details
 
 ### Products Licensed
-`products_licensed`
 
-### Payment Details
-`payment_terms` · `renewal_period` · `cancellation_process`
+| Field | Description |
+| --- | --- |
+| [`products_licensed`](/fields#products-licensed) | Products covered by this invoice |
 
-### Permissions and Scope of Use
-`end_users` · `number_of_users` · `market_data_types` · `data_delivery_types`
+### Product terms
 
----
+| Field | Description |
+| --- | --- |
+| [`market_data_types`](/fields#permissions--scope-of-use) | Real-time/delayed quotes, fixed income holdings, T&C, historical data |
+| [`data_delivery_types`](/fields#permissions--scope-of-use) | Delivery methods such as SFTP or Snowflake |
 
-## Available Tabs
+### Payment details
 
-**Owner** · **Audit** · **Lineage**
+| Field | Description |
+| --- | --- |
+| [`payment_terms`](/fields#payment) | Detail on how the client must pay |
+| [`renewal_period`](/fields#payment) | The term covered by any renewal |
+| [`cancellation_process`](/fields#payment) | How to cancel before auto-renewal |
+
+### Permissions and scope of use
+
+| Field | Description |
+| --- | --- |
+| [`end_users`](/fields#permissions--scope-of-use) | Detail about users, groups, locations, tiered pricing |
+| [`number_of_users`](/fields#permissions--scope-of-use) | Licensed user allocations per product |
 
 <Note>
-Invoice contracts do not include the **DORA** tab.
+  Invoices intentionally **omit** the Adjustments, Marketing Rights, SLA, Audit, Arbitration, Security Awareness, and other long-form term sections that appear on the default field set. They are billing artifacts, not negotiated agreements.
+</Note>
+
+## PostSig metadata
+
+| Field | Description |
+| --- | --- |
+| [`postsig_notes`](/fields#contract-metadata) | Notes added by PostSig |
+| `missing_fields` | Fields flagged as incomplete during extraction |
+| [`asset_classes`](/fields#contract-metadata) | Tagged financial product categories |
+| [`tags`](/fields#contract-metadata) | User-created tags |
+| [`summary`](/fields#contract-metadata) | AI-generated summary of the agreement |
+
+## Tabs
+
+| Tab | Purpose |
+| --- | --- |
+| Owner | Business sponsor and ownership details |
+| Audit | Contract audit log |
+| Lineage | Parent / child contract relationships |
+
+<Note>
+  Invoice contracts **do not** show the DORA tab; DORA risk applies to operational/commercial agreements, not billing artifacts.
 </Note>
 
 ---
 
-## Summary
+## Baseline (all contracts)
 
-<CardGroup cols={3}>
-  <Card title="Overview Fields" icon="layer-group">
-    6 fields
-  </Card>
-  <Card title="Detail Sections" icon="list">
-    3 sections
-  </Card>
-  <Card title="Total Fields" icon="database">
-    14 fields
-  </Card>
-</CardGroup>
+Fields below appear on every contract regardless of type. See the [Contract Fields glossary](/fields) for full definitions.
 
----
+### Contract metadata
 
-<Note>
-See the [Contract Fields](/fields) page for detailed descriptions of each field.
-</Note>
+| Field | Description |
+| --- | --- |
+| [`vendor`](/fields#contract-metadata) | Vendor name |
+| [`contract_type`](/fields#contract-metadata) | Type name (resolved from `type_id`) |
+| [`status`](/fields#contract-metadata) | Active / Inactive / Unconfirmed |
+| [`will_not_renew`](/fields#contract-metadata) | Marks contract for archival at end date |
+| [`all_parties_signed`](/fields#contract-metadata) | Execution status |
+
+### Contract owner
+
+| Field | Description |
+| --- | --- |
+| [`business_sponsor`](/fields#contract-owner) | Internal advocate for the engagement |
+| [`business_group`](/fields#contract-owner) | The sponsor's business group |
+| [`business_justification`](/fields#contract-owner) | Reason for the purchase |
+| [`business_order`](/fields#contract-owner) | Client-assigned order code |

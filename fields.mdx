@@ -1,19 +1,19 @@
 ---
-title: Contract Fields
-description: Complete list of all contract fields
+title: "Contract Fields"
+description: "Complete list of all contract fields"
 ---
 
 ## Contract Metadata
 
 | Name | Field ID | Description |
 | --- | --- | --- |
-| Vendor | `vendor` | Vendor name from global vendors stable
-| Contract Type | `type_id` | Contract type |
-| Contract Status | `status` | Either **Active**, **Inactive**, or **Unconfirmed**
-| Will Not Renew | `will_not_renew` | Users can mark contracts for non-renewal and they will archive at the end date
+| Vendor | `vendor` | Vendor name from global vendors stable |
+| Contract Type | `contract_type` | Contract type name (e.g. "MSA", "NDA"). Resolved from the `type_id` foreign key on the contract row via `contract_types.name`. See [Contract Types](/contract-types) for the full mapping. |
+| Contract Status | `status` | Either **Active**, **Inactive**, or **Unconfirmed** |
+| Will Not Renew | `will_not_renew` | Users can mark contracts for non-renewal and they will archive at the end date |
 | All Parties Signed | `all_parties_signed` | Indicates whether the contract has been executed by all parties. Displays "Not Executed" badge when value is "No" |
 | Renewal Type | `renewal_type` | **Auto**, **Manual**, or **One-Time** |
-| Auto Renewal | `auto_renewal` | **Replaced by renewal_type** Y/N, if a contract contains a stipulation for renewing automatically at the end of the initial term |
+| Auto Renewal | `auto_renewal` | **Replaced by renewal\_type** Y/N, if a contract contains a stipulation for renewing automatically at the end of the initial term |
 | Asset Classes | `asset_classes` | Financial product categories tagged based on contract content. [See full taxonomy →](#asset-classes) |
 | Tags | `tags` | User-created tags applied to contracts |
 | Summary | `summary` | An AI generated summary of the spirit of the agreement that was entered into by the client and vendor |
@@ -49,12 +49,12 @@ description: Complete list of all contract fields
 ## Products Licensed
 
 <Note>
-Products have their own schema structure. [See detailed Products Schema documentation →](/products)
+  Products have their own schema structure. [See detailed Products Schema documentation →](/products)
 </Note>
 
 | Name | Field ID | Description |
 | --- | --- | --- |
-| ID | `vendor_products.id` | |
+| ID | `vendor_products.id` |  |
 | Product Name | `vendor_products.name` | The name of the product offered by the vendor |
 | Vendor ID | `vendor_products.vendor_id` | Links the product to its vendor |
 | Annual Fees | `vendor_products_details.fees` | Annual fee amount for this product in a given year |
@@ -113,7 +113,7 @@ Products have their own schema structure. [See detailed Products Schema document
 | Data Disposal Terms and Conditions | `data_disposal_tnc` | Obligations that exist under the conditions of the contract ending through cancellation or lapse or election not to purchase after a trial period |
 | Arbitration and Conflict Resolution | `arbitration_and_conflict_resolution` | Jurisdictional and venue stipulations |
 | Security Awareness and Tracking | `security_awareness` | What educational resources does the vendor make available |
-| Audit Requirements | `audit_requirements` | |
+| Audit Requirements | `audit_requirements` |  |
 | Service Level Agreements | `service_level_agreements` | Service level descriptions including SLA, Disaster Recovery Plan, and Uptime Guarantees |
 | Incident Related Cost Mitigation | `cost_mitigation` | Elements of SLA, Disaster Recovery Plan and Uptime Guarantees that relate specifically to damages and accounting for them, compensation due to client |
 
@@ -145,7 +145,7 @@ Products have their own schema structure. [See detailed Products Schema document
 Automated risk assessment for NDA contracts. Contains 7 specific risk indicators.
 
 <Note>
-Risk levels are calculated as: **High Risk** (4+ flags), **Medium Risk** (1-3 flags), **Low Risk** (0 flags)
+  Risk levels are calculated as: **High Risk** (4\+ flags), **Medium Risk** (1-3 flags), **Low Risk** (0 flags)
 </Note>
 
 | Risk Indicator | Field ID | Description |
@@ -160,12 +160,12 @@ Risk levels are calculated as: **High Risk** (4+ flags), **Medium Risk** (1-3 fl
 
 ---
 
-
 ## Asset Classes
 
 Asset classes associated with the contract.
 
 **Tagging Logic**
+
 - Finding any subcategory triggers the parent tag (e.g., "Common Stocks" → "Equities" tag)
 - Finding the parent itself also triggers that tag
 - Multiple asset classes can be tagged per contract
@@ -188,7 +188,7 @@ Asset classes associated with the contract.
 | **Insurance Products** | <ul><li>Life Insurance Contracts</li><li>Annuities</li><li>Catastrophe Bonds</li></ul> |
 
 <Note>
-This taxonomy may expand over time as new asset classes and financial products emerge.
+  This taxonomy may expand over time as new asset classes and financial products emerge.
 </Note>
 
 ---
