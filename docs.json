@@ -21,6 +21,13 @@
       "weight": 500
     }
   },
+  "redirects": [
+    {
+      "source": "/user-roles-permissions",
+      "destination": "/access/roles",
+      "permanent": true
+    }
+  ],
   "navigation": {
     "tabs": [
       {
@@ -56,9 +63,10 @@
             ]
           },
           {
-            "group": "Permissions",
+            "group": "Access",
             "pages": [
-              "user-roles-permissions"
+              "access/roles",
+              "access/permissions"
             ]
           }
         ]
