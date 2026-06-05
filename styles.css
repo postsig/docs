@@ -137,7 +137,13 @@ table td:first-child {
     width: 36%;
 }
 
-/* Bind heading font at CSS-parse time so SPA navigation can't paint headings in the fallback first */
+/* Mintlify resolves `h1-h6 { font-family: var(--font-family-headings-custom, var(--font-inter)), ... }`.
+   That variable is set by docs.json fonts.heading after hydration, so initial paint falls back to Inter
+   and the heading visibly swaps to FK Grotesk. Setting the variable here, at CSS-parse time, prevents that. */
+:root {
+    --font-family-headings-custom: "FK Grotesk";
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "FK Grotesk", system-ui, -apple-system, sans-serif !important;
 }
