@@ -8,7 +8,7 @@ description: "Complete list of all contract fields"
 | Name | Field ID | Description |
 | --- | --- | --- |
 | Vendor | `vendor` | Vendor name from global vendors stable |
-| Contract Type | `contract_type` | Contract type name (e.g. "MSA", "NDA"). Resolved from the `type_id` foreign key on the contract row via `contract_types.name`. See [Contract Types](/contract-types) for the full mapping. |
+| Contract Type | `contract_type` | The contract type, e.g. MSA or NDA. See [Contract Types](/contract-types) for the full list. |
 | Contract Status | `status` | Either **Active**, **Inactive**, or **Unconfirmed** |
 | Will Not Renew | `will_not_renew` | Users can mark contracts for non-renewal and they will archive at the end date |
 | All Parties Signed | `all_parties_signed` | Indicates whether the contract has been executed by all parties. Displays "Not Executed" badge when value is "No" |

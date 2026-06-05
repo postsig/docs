@@ -3,25 +3,21 @@ title: "Contract Types"
 description: "Overview of all contract types in PostSig"
 ---
 
-PostSig recognizes nine contract types. Each one renders a tailored set of fields in the app, organized into overview, contract-details, and metadata zones. Two types — **Invoice** and **NDA** — use custom field configurations; the other seven share a single default configuration.
+PostSig recognizes nine contract types. Each one renders a tailored set of fields in the app. Two types — **Invoice** and **NDA** — have their own custom field set; the other seven share a single default set.
 
 ## All contract types
 
-| Type ID | Contract Type | Field set | Per-type docs |
-| --- | --- | --- | --- |
-| 1 | Master Services Agreement (MSA) | Default | [MSA →](/contract-types/msa) |
-| 2 | Service Order (SO) | Default | [SO →](/contract-types/so) |
-| 3 | Addendum | Default | [Addendum →](/contract-types/addendum) |
-| 4 | Other | Default | [Other →](/contract-types/other) |
-| 5 | Terms of Service (TOS) | Default | [TOS →](/contract-types/tos) |
-| 6 | Invoice | **Custom** | [Invoice →](/contract-types/invoice) |
-| 7 | Trial Agreement | Default | [Trial →](/contract-types/trial) |
-| 8 | NDA | **Custom** | [NDA →](/contract-types/nda) |
-| 9 | Operational Agreement | Default | [Operational →](/contract-types/operational) |
-
-## Storage vs. display
-
-A contract row stores the numeric foreign key `type_id` (1–9). The UI and exports display the resolved name from the `contract_types` table as `contract_type` (e.g. `"MSA"`). When working with the API or raw data, refer to `type_id`; when reading user-facing surfaces, refer to `contract_type`.
+| Contract Type | Field set | Per-type docs |
+| --- | --- | --- |
+| Master Services Agreement (MSA) | Default | [MSA →](/contract-types/msa) |
+| Service Order (SO) | Default | [SO →](/contract-types/so) |
+| Addendum | Default | [Addendum →](/contract-types/addendum) |
+| Other | Default | [Other →](/contract-types/other) |
+| Terms of Service (TOS) | Default | [TOS →](/contract-types/tos) |
+| Invoice | Custom | [Invoice →](/contract-types/invoice) |
+| Trial Agreement | Default | [Trial →](/contract-types/trial) |
+| NDA | Custom | [NDA →](/contract-types/nda) |
+| Operational Agreement | Default | [Operational →](/contract-types/operational) |
 
 ## What changes per type
 
@@ -30,9 +26,7 @@ Each per-type page documents:
 - **Overview** — fields shown at the top of the contract view
 - **Contract Details** — sectioned field groups shown below
 - **PostSig Metadata** — extraction-time metadata (notes, summary, asset classes, tags, missing fields; NDA also includes risk indicators)
-- **Tabs** — which side panels are available (Owner, DORA, Audit, Lineage)
+- **Tabs** — which side panels are available
 - **Baseline** — fields that appear on every contract regardless of type
 
 For full definitions of every field, see the [Contract Fields glossary](/fields).
-
-**Last Updated:** 2026-06-04

@@ -3,24 +3,26 @@ title: "Invoice"
 description: "Fields shown for Invoice contracts (type_id 6)"
 ---
 
-<Info>
-  **Type ID:** `6`    **Field configuration:** Custom (Invoice-specific)
-</Info>
+<Tip>
+  _Description placeholder — add a short note describing what an Invoice document is in PostSig._
+</Tip>
 
-Invoice contracts use a narrowed field configuration focused on the financial details of a single billing event. Renewal, multi-year, and most negotiated terms are intentionally omitted.
+Invoice contracts use a narrower set of fields focused on the financial details of a single billing event. Renewal, multi-year, and most negotiated terms are intentionally omitted.
+
+Field definitions live in the [Contract Fields glossary](/fields).
 
 ## Overview
 
-Top-of-page fields. Invoices include the execution date, billing frequency, and currency in the overview itself — fields that live in deeper sections for other contract types.
+Invoices include the execution date, billing frequency, and currency in the overview itself — fields that live in deeper sections for other contract types.
 
 | Field | Description |
 | --- | --- |
-| [`term_start_date`](/fields#date-fields) | The calendar date on which the term begins |
-| [`term_end_date`](/fields#date-fields) | The calendar date on which the term ends |
-| [`execution_date`](/fields#date-fields) | The date the document was signed |
-| [`billing_frequency`](/fields#payment) | How often the client is billed |
-| [`subscription_term`](/fields#date-fields) | Length of the term, in months |
-| [`currency`](/fields#payment) | Currency the amounts are expressed in |
+| `term_start_date` | Calendar date on which the term begins |
+| `term_end_date` | Calendar date on which the term ends |
+| `execution_date` | The date the document was signed |
+| `billing_frequency` | How often the client is billed |
+| `subscription_term` | Length of the term, in months |
+| `currency` | Currency the amounts are expressed in |
 
 ## Contract details
 
@@ -28,77 +30,69 @@ Top-of-page fields. Invoices include the execution date, billing frequency, and 
 
 | Field | Description |
 | --- | --- |
-| [`products_licensed`](/fields#products-licensed) | Products covered by this invoice |
+| `products_licensed` | Products covered by this invoice |
 
 ### Product terms
 
 | Field | Description |
 | --- | --- |
-| [`market_data_types`](/fields#permissions--scope-of-use) | Real-time/delayed quotes, fixed income holdings, T&C, historical data |
-| [`data_delivery_types`](/fields#permissions--scope-of-use) | Delivery methods such as SFTP or Snowflake |
+| `market_data_types` | Real-time/delayed quotes, fixed income holdings, T&C, historical data |
+| `data_delivery_types` | Delivery methods such as SFTP or Snowflake |
 
 ### Payment details
 
 | Field | Description |
 | --- | --- |
-| [`payment_terms`](/fields#payment) | Detail on how the client must pay |
-| [`renewal_period`](/fields#payment) | The term covered by any renewal |
-| [`cancellation_process`](/fields#payment) | How to cancel before auto-renewal |
+| `payment_terms` | Detail on how the client must pay |
+| `renewal_period` | The term covered by any renewal |
+| `cancellation_process` | How to cancel before auto-renewal |
 
 ### Permissions and scope of use
 
 | Field | Description |
 | --- | --- |
-| [`end_users`](/fields#permissions--scope-of-use) | Detail about users, groups, locations, tiered pricing |
-| [`number_of_users`](/fields#permissions--scope-of-use) | Licensed user allocations per product |
+| `end_users` | Detail about users, groups, locations, tiered pricing |
+| `number_of_users` | Licensed user allocations per product |
 
 <Note>
-  Invoices intentionally **omit** the Adjustments, Marketing Rights, SLA, Audit, Arbitration, Security Awareness, and other long-form term sections that appear on the default field set. They are billing artifacts, not negotiated agreements.
+  Invoices intentionally omit the Adjustments, Marketing Rights, SLA, Audit, Arbitration, Security Awareness, and other long-form term sections that appear on the default field set. They are billing artifacts, not negotiated agreements.
 </Note>
 
 ## PostSig metadata
 
 | Field | Description |
 | --- | --- |
-| [`postsig_notes`](/fields#contract-metadata) | Notes added by PostSig |
+| `postsig_notes` | Notes added by PostSig |
 | `missing_fields` | Fields flagged as incomplete during extraction |
-| [`asset_classes`](/fields#contract-metadata) | Tagged financial product categories |
-| [`tags`](/fields#contract-metadata) | User-created tags |
-| [`summary`](/fields#contract-metadata) | AI-generated summary of the agreement |
+| `asset_classes` | Tagged financial product categories |
+| `tags` | User-created tags |
+| `summary` | AI-generated summary of the agreement |
 
 ## Tabs
 
-| Tab | Purpose |
-| --- | --- |
-| Owner | Business sponsor and ownership details |
-| Audit | Contract audit log |
-| Lineage | Parent / child contract relationships |
-
-<Note>
-  Invoice contracts **do not** show the DORA tab; DORA risk applies to operational/commercial agreements, not billing artifacts.
-</Note>
+This contract view includes the **Owner**, **Audit**, and **Lineage** tabs. Invoices do not show the **DORA** tab.
 
 ---
 
 ## Baseline (all contracts)
 
-Fields below appear on every contract regardless of type. See the [Contract Fields glossary](/fields) for full definitions.
+Fields below appear on every contract regardless of type.
 
 ### Contract metadata
 
 | Field | Description |
 | --- | --- |
-| [`vendor`](/fields#contract-metadata) | Vendor name |
-| [`contract_type`](/fields#contract-metadata) | Type name (resolved from `type_id`) |
-| [`status`](/fields#contract-metadata) | Active / Inactive / Unconfirmed |
-| [`will_not_renew`](/fields#contract-metadata) | Marks contract for archival at end date |
-| [`all_parties_signed`](/fields#contract-metadata) | Execution status |
+| `vendor` | Vendor name |
+| `contract_type` | The contract type (e.g. MSA, NDA) |
+| `status` | Active, Inactive, or Unconfirmed |
+| `will_not_renew` | Marks contract for archival at end date |
+| `all_parties_signed` | Execution status |
 
 ### Contract owner
 
 | Field | Description |
 | --- | --- |
-| [`business_sponsor`](/fields#contract-owner) | Internal advocate for the engagement |
-| [`business_group`](/fields#contract-owner) | The sponsor's business group |
-| [`business_justification`](/fields#contract-owner) | Reason for the purchase |
-| [`business_order`](/fields#contract-owner) | Client-assigned order code |
+| `business_sponsor` | Internal advocate for the engagement |
+| `business_group` | The sponsor's business group |
+| `business_justification` | Reason for the purchase |
+| `business_order` | Client-assigned order code |
