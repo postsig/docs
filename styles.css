@@ -124,3 +124,14 @@
 #footer {
     visibility: hidden;
 }
+
+/* Consistent table column widths across docs */
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table th:first-child,
+table td:first-child {
+    width: 36%;
+}

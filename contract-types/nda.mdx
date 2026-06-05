@@ -1,76 +1,95 @@
 ---
-title: NDA Contract Configuration
-description: Specialized field configuration for non-disclosure agreements
+title: "NDA"
+description: "Fields shown for Non-Disclosure Agreement contracts (type_id 8)"
 ---
 
-# NDA Contract Configuration
+NDA contracts use a different set of fields focused on confidentiality scope, party obligations, and legal provisions, plus an automated risk indicator assessment.
 
-Used by: **NDA** (Type 8)
+Field definitions live in the [Contract Fields glossary](/fields).
 
-NDA contracts use a specialized configuration with fields organized around confidentiality obligations and protective measures.
+## Overview
+
+NDAs surface execution dates and the extended confidentiality period instead of the standard renewal fields.
+
+| Field | Description |
+| --- | --- |
+| `term_start_date` | Calendar date on which the agreement begins |
+| `term_end_date` | Calendar date on which the term ends |
+| `cancel_date` | Date by which the agreement must be cancelled |
+| `execution_date` | The date the agreement was signed |
+| `subscription_term` | Length of the term, in months |
+| `extended_confidentiality_period` | Period beyond the term that confidentiality obligations continue |
+
+## Contract details
+
+### Scope and definition of confidentiality
+
+| Field | Description |
+| --- | --- |
+| `purpose` | Relationship between the parties and what the agreement obliges them to |
+| `mutual_nda` | Identifies the NDA as unilateral or bilateral |
+| `confidential_information` | General and specific nature of the information to be shared |
+| `permitted_use` | What either party can and cannot do with confidential information |
+| `term_termination` | Length of the agreement and how it can be ended |
+
+### Obligations and protective measures
+
+| Field | Description |
+| --- | --- |
+| `non_use_non_disclosure` | Restrictions on disclosure and use of confidential information |
+| `maintenance_of_confidentiality` | Obligations for maintaining discretion |
+| `no_obligation` | What the agreement does _not_ require either party to do |
+| `no_license_ownership` | Persistence of property rights over shared and newly created IP |
+| `exclusions_exceptions` | Carve-outs not covered by the agreement |
+| `non_solicitation_of_employees` | Restrictions on hiring counterparty employees |
+| `data_disposal_tnc` | Disposal obligations on termination |
+
+### Remedies and legal provisions
+
+| Field | Description |
+| --- | --- |
+| `remedies` | Entitlements of either party in case of breach |
+| `no_warranty` | Warranties either party does or does not make |
+| `disclosure_required_by_law` | Handling of legally compelled disclosure |
+| `arbitration_and_conflict_resolution` | Jurisdictional and venue stipulations |
+| `miscellaneous` | Anything not effectively covered elsewhere |
+
+## NDA risk indicators
+
+NDAs include an automated risk assessment surfaced as `nda_risks`. Risk level is computed from 7 binary indicators: **High** (4\+ flags), **Medium** (1–3 flags), **Low** (0 flags). See [NDA Risk Indicators](/fields#nda-risk-indicators) for the full list.
+
+## PostSig metadata
+
+| Field | Description |
+| --- | --- |
+| `postsig_notes` | Notes added by PostSig |
+| `nda_risks` | Computed NDA risk level and the indicators that triggered it |
+| `missing_fields` | Fields flagged as incomplete during extraction |
+| `asset_classes` | Tagged financial product categories |
+| `tags` | User-created tags |
+| `summary` | AI-generated summary of the agreement |
 
 ---
 
-## Overview Fields
+## Baseline (all contracts)
 
-These fields appear in the contract overview section.
+Fields below appear on every contract regardless of type.
 
-`term_start_date` · `term_end_date` · `cancel_date` · `execution_date` · `subscription_term` · `extended_confidentiality_period`
+### Contract metadata
 
-<Note>
-NDA contracts include the **extended_confidentiality_period** field, which is unique to this contract type.
-</Note>
+| Field | Description |
+| --- | --- |
+| `vendor` | Vendor name |
+| `contract_type` | The contract type (e.g. MSA, NDA) |
+| `status` | Active, Inactive, or Unconfirmed |
+| `will_not_renew` | Marks contract for archival at end date |
+| `all_parties_signed` | Execution status |
 
----
+### Contract owner
 
-## Contract Details
-
-### Scope and Definition of Confidentiality
-
-Defines what information is confidential and the purpose of the agreement.
-
-`purpose` · `mutual_nda` · `confidential_information` · `permitted_use` · `term_termination`
-
-### Obligations and Protective Measures
-
-Outlines the obligations and protective measures for handling confidential information.
-
-`non_use_non_disclosure` · `maintenance_of_confidentiality` · `no_obligation` · `no_license_ownership` · `exclusions_exceptions` · `non_solicitation_of_employees` · `data_disposal_tnc`
-
-### Remedies and Legal Provisions
-
-Specifies remedies and legal provisions for breach or disclosure.
-
-`remedies` · `no_warranty` · `disclosure_required_by_law` · `arbitration_and_conflict_resolution` · `miscellaneous`
-
----
-
-## Available Tabs
-
-**Owner** · **Audit** · **Lineage**
-
-<Note>
-NDA contracts do not include the **DORA** tab.
-</Note>
-
----
-
-## Summary
-
-<CardGroup cols={3}>
-  <Card title="Overview Fields" icon="layer-group">
-    6 fields
-  </Card>
-  <Card title="Detail Sections" icon="list">
-    3 sections
-  </Card>
-  <Card title="Total Fields" icon="database">
-    23 fields
-  </Card>
-</CardGroup>
-
----
-
-<Note>
-See the [Contract Fields](/fields) page for detailed descriptions of each field.
-</Note>
+| Field | Description |
+| --- | --- |
+| `business_sponsor` | Internal advocate for the engagement |
+| `business_group` | The sponsor's business group |
+| `business_justification` | Reason for the purchase |
+| `business_order` | Client-assigned order code |

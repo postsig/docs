@@ -1,0 +1,125 @@
+---
+title: "TOS"
+description: "Fields shown for Terms of Service contracts (type_id 5)"
+---
+
+<Note>
+  Uses the **default field configuration** — the standard field set shared by MSA, Service Order, Addendum, Other, TOS, Trial, and Operational agreements. (Invoice and NDA have custom configurations.)
+</Note>
+
+Field definitions live in the [Contract Fields glossary](/fields).
+
+## Overview
+
+| Field | Description |
+| --- | --- |
+| `term_start_date` | Calendar date on which the contract begins |
+| `term_end_date` | Calendar date on which the contract term ends |
+| `cancel_by_date` | Date range to cancel by to avoid auto-renewal |
+| `subscription_term` | Length of the contract term, in months |
+| `renewal_type` | Auto, Manual, or One-Time |
+| `multi_year` | Whether the contract spans more than one year |
+
+## Contract details
+
+### Products Licensed
+
+| Field | Description |
+| --- | --- |
+| `vendor_products.id` | Product ID |
+| `vendor_products.name` | Product name |
+| `vendor_products.vendor_id` | Links the product to its vendor |
+| `vendor_products_details.fees` | Annual fee amount |
+| `vendor_products_details.year` | Contract year (for multi-year pricing) |
+| `vendor_products.delivery_method_id` | Data delivery method |
+
+### Product terms
+
+| Field | Description |
+| --- | --- |
+| `market_data_types` | Real-time/delayed quotes, fixed income holdings, T&C, historical data |
+| `data_delivery_types` | Delivery methods such as SFTP or Snowflake |
+| `exclusivity_terms` | Exclusive/non-exclusive rights to the data or product |
+
+### Adjustments
+
+| Field | Description |
+| --- | --- |
+| `discount` | Discount applied to the total cost |
+| `annual_increase` | Scheduled percentage increase per period |
+| `annual_increase_months` | Interval between increases, in months (defaults to 12) |
+| `cpi` | Whether annual increase may be affected by CPI |
+
+### Payment details
+
+| Field | Description |
+| --- | --- |
+| `billing_frequency` | How often the client pays the vendor |
+| `currency` | Currency the remuneration is expressed in |
+| `payment_terms` | Detail on how the client must pay |
+| `renewal_period` | The term covered by the renewal |
+| `cancellation_process` | How to cancel before auto-renewal |
+
+### Permissions and scope of use
+
+| Field | Description |
+| --- | --- |
+| `end_users` | Detail about users, groups, locations, tiered pricing |
+| `number_of_users` | Licensed user allocations per product |
+| `ai_training_restrictions` | Restrictions on using vendor data to train models |
+| `internal_external_users` | Whether external users are permitted |
+| `distribution_rights` | Client rights and obligations regarding distribution |
+| `geo_restrictions` | Geographic restrictions |
+| `derivative_works` | Rules for combining vendor data into other offerings |
+| `activities` | Lines of business the data can support |
+
+### Other terms
+
+Each appears as an individual card in the contract details panel.
+
+| Field | Description |
+| --- | --- |
+| `marketing_rights` | Marketing rights and obligations |
+| `suspension_of_service` | Circumstances that can pause or end the agreement |
+| `data_disposal_tnc` | Disposal obligations on cancellation or lapse |
+| `audit_requirements` | Audit requirements |
+| `service_level_agreements` | SLA, DRP, uptime guarantees |
+| `cost_mitigation` | Incident-related cost mitigation |
+| `arbitration_and_conflict_resolution` | Jurisdictional and venue stipulations |
+| `security_awareness` | Vendor-provided educational resources |
+| `amended_clauses` | Clauses amended in this contract |
+
+## PostSig metadata
+
+| Field | Description |
+| --- | --- |
+| `postsig_notes` | Notes added by PostSig |
+| `missing_fields` | Fields flagged as incomplete during extraction |
+| `asset_classes` | Tagged financial product categories |
+| `tags` | User-created tags |
+| `summary` | AI-generated summary of the agreement |
+
+---
+
+## Baseline (all contracts)
+
+Fields below appear on every contract regardless of type.
+
+### Contract metadata
+
+| Field | Description |
+| --- | --- |
+| `vendor` | Vendor name |
+| `contract_type` | The contract type (e.g. MSA, NDA) |
+| `status` | Active, Inactive, or Unconfirmed |
+| `will_not_renew` | Marks contract for archival at end date |
+| `all_parties_signed` | Execution status |
+
+### Contract owner
+
+| Field | Description |
+| --- | --- |
+| `business_sponsor` | Internal advocate for the engagement |
+| `business_group` | The sponsor's business group |
+| `business_justification` | Reason for the purchase |
+| `business_order` | Client-assigned order code |
