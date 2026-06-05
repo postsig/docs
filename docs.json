@@ -36,7 +36,12 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
+              "index"
+            ]
+          },
+          {
+            "group": "CPM",
+            "pages": [
               "fields",
               {
                 "group": "Contract Types",
@@ -53,6 +58,13 @@
                   "contract-types/nda"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Investor",
+            "tag": "BETA",
+            "pages": [
+              "investor/index"
             ]
           },
           {

@@ -56,7 +56,17 @@ NDAs surface execution dates and the extended confidentiality period instead of 
 
 ## NDA risk indicators
 
-NDAs include an automated risk assessment surfaced as `nda_risks`. Risk level is computed from 7 binary indicators: **High** (4\+ flags), **Medium** (1–3 flags), **Low** (0 flags). See [NDA Risk Indicators](/fields#nda-risk-indicators) for the full list.
+NDAs include an automated risk assessment surfaced as `nda_risks`. The risk level is computed from 7 binary indicators: **High** (4+ flags), **Medium** (1–3 flags), **Low** (0 flags).
+
+| Field | Description |
+| --- | --- |
+| `perpetual_nda` | The NDA is ongoing with no end-of-term date specified. |
+| `unilateral_nda` | Obligates only the signing party to confidentiality. |
+| `non_solicitation` | Obligates one or both parties not to hire each other's employees. |
+| `uncapped_liability` | No upward limit on monetary damages or other liabilities either party can incur. |
+| `foreign_jurisdiction` | Controversies will be adjudicated outside the United States. |
+| `no_carve_out_provisions` | Fails to stipulate what isn't confidential information (e.g. publicly known information, compelled disclosure). |
+| `post_end_of_term_obligations` | Confidentiality obligations continue beyond the end of term. |
 
 ## PostSig metadata
 
