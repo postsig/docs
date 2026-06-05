@@ -23,8 +23,7 @@
     "body": {
       "family": "FK Grotesk Neue",
       "source": "/fonts/FKGroteskNeue-Regular.woff2",
-      "format": "woff2",
-      "weight": 400
+      "format": "woff2"
     }
   },
   "redirects": [
