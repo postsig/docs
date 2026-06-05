@@ -21,6 +21,13 @@
       "weight": 500
     }
   },
+  "redirects": [
+    {
+      "source": "/user-roles-permissions",
+      "destination": "/access/roles",
+      "permanent": true
+    }
+  ],
   "navigation": {
     "tabs": [
       {
@@ -45,8 +52,21 @@
                   "contract-types/operational",
                   "contract-types/nda"
                 ]
-              },
-              "user-roles-permissions"
+              }
+            ]
+          },
+          {
+            "group": "MCP Servers",
+            "pages": [
+              "mcp-servers/cpm",
+              "mcp-servers/investor"
+            ]
+          },
+          {
+            "group": "Access",
+            "pages": [
+              "access/roles",
+              "access/permissions"
             ]
           }
         ]
