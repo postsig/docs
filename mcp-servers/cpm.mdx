@@ -5,7 +5,7 @@ description: "MCP server tools for contract and portfolio management"
 
 The CPM MCP server exposes tools for working with contracts, vendors, renewals, spend, and related metadata in the user's organization.
 
-**Server URL:** `https://app.postsig.com/api/cpm/mcp`
+**Server URL:** `https://mcp.postsig.com/cpm`
 
 ## Connect
 
@@ -19,7 +19,7 @@ The CPM MCP server exposes tools for working with contracts, vendors, renewals, 
         Click **Add custom connector** and enter:
 
         - **Name:** PostSig CPM
-        - **URL:** `https://app.postsig.com/api/cpm/mcp`
+        - **URL:** `https://mcp.postsig.com/cpm`
       </Step>
       <Step title="Sign in">
         Click **Add** and complete the OAuth login with your PostSig account.
@@ -33,7 +33,7 @@ The CPM MCP server exposes tools for working with contracts, vendors, renewals, 
     Run:
 
     ```bash
-    claude mcp add --transport http postsig-cpm https://app.postsig.com/api/cpm/mcp
+    claude mcp add --transport http postsig-cpm https://mcp.postsig.com/cpm
     ```
 
     On first use a browser window opens for OAuth login.
