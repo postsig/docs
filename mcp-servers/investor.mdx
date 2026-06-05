@@ -1,0 +1,45 @@
+---
+title: "Investor"
+description: "MCP server tools for portfolio company and fund data"
+---
+
+The Investor MCP server exposes tools for working with portfolio companies, their cap tables, transactions, securities, financing rounds, and funds.
+
+## Companies
+
+| Tool | Description |
+| --- | --- |
+| `list_portfolio_companies` | List portfolio companies with rollup metrics — current FMV, MOIC, aggregate cost, FD%, post-money, primary fund, current/entry stage. |
+| `get_portfolio_company` | Full detail for one company by `public_id`. |
+
+## Cap table
+
+| Tool | Description |
+| --- | --- |
+| `get_company_cap_table` | Cap-table snapshot — totals (FD, outstanding, implied valuation, share price), common/preferred/option-pool breakdown, and our position (shares, ownership %, voting %). |
+
+## Transactions
+
+| Tool | Description |
+| --- | --- |
+| `get_company_transactions` | Transaction history — purchases, sales, secondary sales, distributions, exits, conversions. Each row carries date, type, units, amount USD, the fund and security involved, and the financing round. |
+
+## Legal & governance
+
+| Tool | Description |
+| --- | --- |
+| `get_company_legal_terms` | Legal/governance terms — structured tables overlaid with the latest Aumni-imported snapshot. Mirrors the Legal Terms tab in the app. |
+| `get_company_board` | Board composition — directors and observers with their designating fund. |
+
+## Securities & rounds
+
+| Tool | Description |
+| --- | --- |
+| `get_company_securities` | Securities issued by a company with current terms (where `superseded_date IS NULL`). Each row carries security type, series, and the full terms block. |
+| `get_company_financing_rounds` | Financing rounds in chronological order — stage, pre-money / implied valuation, announced / initial close / final close dates, and round currency. |
+
+## Funds
+
+| Tool | Description |
+| --- | --- |
+| `list_funds` | List investment funds — name, short name, code, vintage year, currency, target size, committed capital. Use to discover fund ids for filtering other tools. |

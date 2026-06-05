@@ -1,0 +1,56 @@
+---
+title: "CPM"
+description: "MCP server tools for contract and portfolio management"
+---
+
+The CPM MCP server exposes tools for working with contracts, vendors, renewals, spend, and related metadata in the user's organization.
+
+<Note>
+  Tools marked **(write)** require the write scope. All others are read-only.
+</Note>
+
+## Contracts
+
+| Tool | Description |
+| --- | --- |
+| `list_contracts` | List contracts (defaults to active). Returns concise summaries — id, name, vendor, dates, USD spend, tags, business group. Paginated. |
+| `get_contract` | Full detail for one contract by id. The "show me / pull up" tool for a single contract. |
+| `query_contracts` | Filter contracts by vendor, contract type, business group, tag, renewal type, date windows, annual spend range, and price-escalator status. Sortable. |
+| `search_contract_clauses` | Search contracts by their legal clause text or AI summary. |
+| `update_contract` (write) | Update whitelisted fields on a contract: `business_group`, `business_sponsor`, `tags`. |
+
+## Vendors
+
+| Tool | Description |
+| --- | --- |
+| `list_vendors` | List vendors sorted by current annual spend (USD desc). |
+| `get_vendor` | A vendor with their contracts, relationship metrics, and per-contract spend in USD. |
+
+## Renewals
+
+| Tool | Description |
+| --- | --- |
+| `get_upcoming_renewals` | Active contracts whose action date falls within N days, sorted by urgency. Supports vendor-scoped queries. |
+| `get_renewal_summary` | Renewal-decision brief for one contract — cancel-by deadlines, auto-renew status, end-of-term outcomes, and price changes at renewal. |
+
+## Spend
+
+| Tool | Description |
+| --- | --- |
+| `get_spend` | Total org-wide spend over a time window, in actual-cost or amortized view. |
+| `get_spend_breakdown` | Spend pivoted by business sponsor or business group, with current-month vs. next-month deltas. |
+
+## Reports
+
+| Tool | Description |
+| --- | --- |
+| `get_report_data` | Run a named CPM report (renewals, compliance, invoicing, etc.) and return its rows. Paginated. |
+
+## Other
+
+| Tool | Description |
+| --- | --- |
+| `list_tags` | List all tags defined in the organization. Resolve a tag name to an id before calling `query_contracts`. |
+| `get_contract_lineage` | The amendment chain for a contract. |
+| `get_groups` | Query groups/teams and their contract access. |
+| `add_users_to_contract` (write) | Attach named users (typically from an HR CSV) to a contract product. |
