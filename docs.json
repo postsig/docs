@@ -12,6 +12,12 @@
     "light": "#ffffff",
     "dark": "#18162d"
   },
+  "background": {
+    "color": {
+      "light": "#eeeef2",
+      "dark": "#0a0a0f"
+    }
+  },
   "favicon": "/favicon.svg",
   "fonts": {
     "heading": {
