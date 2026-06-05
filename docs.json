@@ -31,22 +31,22 @@
             "pages": [
               "index",
               "fields",
+              {
+                "group": "Contract Types",
+                "pages": [
+                  "contract-types",
+                  "contract-types/msa.mdx",
+                  "contract-types/so.mdx",
+                  "contract-types/addendum.mdx",
+                  "contract-types/other.mdx",
+                  "contract-types/tos.mdx",
+                  "contract-types/invoice.mdx",
+                  "contract-types/trial.mdx",
+                  "contract-types/operational.mdx",
+                  "contract-types/nda.mdx"
+                ]
+              },
               "user-roles-permissions"
-            ]
-          },
-          {
-            "group": "Contract Types",
-            "pages": [
-              "contract-types",
-              "contract-types/msa.mdx",
-              "contract-types/so.mdx",
-              "contract-types/addendum.mdx",
-              "contract-types/other.mdx",
-              "contract-types/tos.mdx",
-              "contract-types/invoice.mdx",
-              "contract-types/trial.mdx",
-              "contract-types/operational.mdx",
-              "contract-types/nda.mdx"
             ]
           }
         ]
