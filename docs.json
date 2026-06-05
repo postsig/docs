@@ -27,33 +27,33 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Reference",
             "pages": [
               "index",
               "fields",
-              {
-                "group": "Contract Types",
-                "pages": [
-                  "contract-types",
-                  "contract-types/msa",
-                  "contract-types/so",
-                  "contract-types/addendum",
-                  "contract-types/other",
-                  "contract-types/tos",
-                  "contract-types/invoice",
-                  "contract-types/trial",
-                  "contract-types/operational",
-                  "contract-types/nda"
-                ]
-              },
-              {
-                "group": "MCP Servers",
-                "pages": [
-                  "mcp-servers/cpm",
-                  "mcp-servers/investor"
-                ]
-              },
               "user-roles-permissions"
+            ]
+          },
+          {
+            "group": "Contract Types",
+            "pages": [
+              "contract-types",
+              "contract-types/msa",
+              "contract-types/so",
+              "contract-types/addendum",
+              "contract-types/other",
+              "contract-types/tos",
+              "contract-types/invoice",
+              "contract-types/trial",
+              "contract-types/operational",
+              "contract-types/nda"
+            ]
+          },
+          {
+            "group": "MCP Servers",
+            "pages": [
+              "mcp-servers/cpm",
+              "mcp-servers/investor"
             ]
           }
         ]
