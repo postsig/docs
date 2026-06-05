@@ -117,46 +117,9 @@ description: "Complete list of all contract fields"
 | Service Level Agreements | `service_level_agreements` | Service level descriptions including SLA, Disaster Recovery Plan, and Uptime Guarantees |
 | Incident Related Cost Mitigation | `cost_mitigation` | Elements of SLA, Disaster Recovery Plan and Uptime Guarantees that relate specifically to damages and accounting for them, compensation due to client |
 
----
-
-## NDA-Specific Fields
-
-| Name | Field ID | Description |
-| --- | --- | --- |
-| Extended Confidentiality Term | `extended_confidentiality_period` | NDA-specific date field |
-| Purpose | `purpose` | Describes the relationship between the parties and what the contract is meant to oblige the counterparties to during the course of the relationship |
-| Mutual NDA | `mutual_nda` | Identifies the NDA as being unilateral or bilateral |
-| Confidential Information | `confidential_information` | Describes the general and specific nature of the information to be shared between the counterparties to the agreement |
-| Permitted Use | `permitted_use` | Describes what either party can and cannot do with regard to the confidential information |
-| Term/Termination | `term_termination` | Describes the length of the agreement and any means by which the agreement can be effectively ended by either party |
-| Non-Use/Non-Disclosure | `non_use_non_disclosure` | Describes how the receiving party is obliged not to disclose or use confidential information for anything other than the use cases prescribed in the NDA |
-| Maintenance of Confidentiality | `maintenance_of_confidentiality` | Describes the obligations of the counterparties in regard to maintaining discretion while dealing with one another's confidential data and information |
-| No Obligation | `no_obligation` | Describes specifics around what the agreement does not oblige either party to do during the course of the agreements |
-| No License/Ownership | `no_license_ownership` | Describes details around persistence of property rights with regard to the confidential information that might be exchanged during the course of the agreement. Also defines property rights that arise from newly created IP |
-| Exclusions/Exceptions | `exclusions_exceptions` | Describes carve-outs or information expressly not covered by the agreement |
-| Non-Solicitation of Employees | `non_solicitation_of_employees` | Describes the extent to which the counterparties are obliged not to employ or retain one another's employees |
-| Remedies | `remedies` | Describes the entitlements of either party should confidentiality be breached during the course of the agreement |
-| No Warranty | `no_warranty` | Describes the warranties either party makes, or does not make, regarding the nature of the confidential information that may be shared |
-| Disclosure Required By Law | `disclosure_required_by_law` | Describes what transpires when either party is legally compelled to disclose anything related to, and including, the confidential information |
-| Miscellaneous | `miscellaneous` | Captures any detail with regard to the agreement that isn't effectively covered in other sections of the contract |
-
-### NDA Risk Indicators
-
-Automated risk assessment for NDA contracts. Contains 7 specific risk indicators.
-
 <Note>
-  Risk levels are calculated as: **High Risk** (4\+ flags), **Medium Risk** (1-3 flags), **Low Risk** (0 flags)
+  NDA-specific fields (purpose, confidential_information, remedies, etc.) and the NDA risk indicators are documented on the [NDA contract type page](/contract-types/nda).
 </Note>
-
-| Risk Indicator | Field ID | Description |
-| --- | --- | --- |
-| Perpetual NDA | `perpetual_nda` | This is ongoing with no end of term date specified |
-| Unilateral NDA | `unilateral_nda` | This will obligate ONLY the signing party to confidentiality |
-| Non-Solicitation | `non_solicitation` | This obligates one or both parties to not hire or attempt to hire an employee of the counterparty |
-| Uncapped Liability | `uncapped_liability` | This has no upward limit on monetary damages or other liabilities that can be incurred by one or both parties |
-| Foreign Jurisdiction | `foreign_jurisdiction` | This stipulates any controversies arising will be adjudicated outside of the United States |
-| No Carve-Out Provisions | `no_carve_out_provisions` | This fails to stipulate what doesn't constitute confidential information (i.e. publicly known information, compelled disclosure by courts) |
-| Post End-of-Term Obligations | `post_end_of_term_obligations` | This has a term beyond the end of term that obliges continued confidentiality to one or both parties |
 
 ---
 
