@@ -56,17 +56,20 @@
     font-style: italic;
 }
 
+/* FK Grotesk Neue has no Semibold (600). Map 600 to Bold (700) for both
+   normal and italic so semibold body text doesn't fall back to synthetic
+   bold of the Regular face. Headings (FK Grotesk family) are unaffected. */
 @font-face {
     font-family: "FK Grotesk Neue";
     src: url("/fonts/FKGroteskNeue-Bold.woff2") format("woff2");
-    font-weight: 700;
+    font-weight: 600 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: "FK Grotesk Neue";
     src: url("/fonts/FKGroteskNeue-BoldItalic.woff2") format("woff2");
-    font-weight: 700;
+    font-weight: 600 700;
     font-style: italic;
 }
 
