@@ -46,14 +46,14 @@
                   "contract-types/nda"
                 ]
               },
-              {
-                "group": "MCP Servers",
-                "pages": [
-                  "mcp-servers/cpm",
-                  "mcp-servers/investor"
-                ]
-              },
               "user-roles-permissions"
+            ]
+          },
+          {
+            "group": "MCP Servers",
+            "pages": [
+              "mcp-servers/cpm",
+              "mcp-servers/investor"
             ]
           }
         ]
