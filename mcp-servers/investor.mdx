@@ -6,7 +6,11 @@ tag: "BETA"
 
 The Investor MCP server exposes tools for working with portfolio companies, their cap tables, transactions, securities, financing rounds, and funds.
 
-**Server URL:** `https://app.postsig.com/api/investor/mcp`
+**Server URL**
+
+```
+https://mcp.postsig.com/investor
+```
 
 ## Connect
 
@@ -20,7 +24,7 @@ The Investor MCP server exposes tools for working with portfolio companies, thei
         Click **Add custom connector** and enter:
 
         - **Name:** PostSig Investor
-        - **URL:** `https://app.postsig.com/api/investor/mcp`
+        - **URL:** `https://mcp.postsig.com/investor`
       </Step>
       <Step title="Sign in">
         Click **Add** and complete the OAuth login with your PostSig account.
@@ -34,7 +38,7 @@ The Investor MCP server exposes tools for working with portfolio companies, thei
     Run:
 
     ```bash
-    claude mcp add --transport http postsig-investor https://app.postsig.com/api/investor/mcp
+    claude mcp add --transport http postsig-investor https://mcp.postsig.com/investor
     ```
 
     On first use a browser window opens for OAuth login.
