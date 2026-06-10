@@ -7,7 +7,7 @@ The CPM MCP server exposes tools for working with contracts, vendors, renewals, 
 
 **Server URL**
 
-```
+```text
 https://mcp.postsig.com/cpm
 ```
 
@@ -15,12 +15,14 @@ https://mcp.postsig.com/cpm
 
 <Tabs>
   <Tab title="Claude">
+    The steps are the same in Claude on the web and Claude Desktop.
+
     <Steps>
       <Step title="Open Connectors">
-        In Claude, go to **Settings → Connectors**.
+        In Claude, go to **Customize → Connectors**.
       </Step>
       <Step title="Add a custom connector">
-        Click **Add custom connector** and enter:
+        Click **\+**, then **Add custom connector** and enter:
 
         - **Name:** PostSig CPM
         - **URL:** `https://mcp.postsig.com/cpm`
@@ -29,7 +31,32 @@ https://mcp.postsig.com/cpm
         Click **Add** and complete the OAuth login with your PostSig account.
       </Step>
       <Step title="Use it">
-        In a Claude chat, use the attachments button to enable the **PostSig CPM** server for that conversation.
+        In a chat, click the **\+** button in the message box, choose **Connectors**, and toggle on **PostSig CPM**.
+      </Step>
+    </Steps>
+
+    <Note>
+      On Team and Enterprise plans, an owner must first add the connector under **Organization settings → Connectors**; members then connect to it from **Customize → Connectors**.
+    </Note>
+  </Tab>
+  <Tab title="ChatGPT">
+    Custom MCP connectors in ChatGPT require developer mode, available on Plus, Pro, Business, Enterprise, and Edu plans.
+
+    <Steps>
+      <Step title="Enable developer mode">
+        Go to **Settings → Apps & Connectors → Advanced settings** and toggle on **Developer mode**.
+      </Step>
+      <Step title="Create the connector">
+        Go to **Settings → Connectors**, click **Create**, and enter:
+
+        - **Name:** PostSig CPM
+        - **Connector URL:** `https://mcp.postsig.com/cpm`
+      </Step>
+      <Step title="Sign in">
+        Click **Create** and complete the OAuth login with your PostSig account.
+      </Step>
+      <Step title="Use it">
+        In a chat, click the **\+** button near the message box, select **More**, and choose **PostSig CPM**.
       </Step>
     </Steps>
   </Tab>
